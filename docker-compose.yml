@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile   # optional if name is exactly "Dockerfile"
+    container_name: my_app
+    ports:
+      - "8085:80" 
