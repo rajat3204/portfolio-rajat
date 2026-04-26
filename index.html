@@ -928,10 +928,7 @@
     /* Credentials */
     .credentials-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.95fr);
-      grid-template-areas:
-        "post resume"
-        "post badges";
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.1rem;
       align-items: stretch;
     }
@@ -945,61 +942,6 @@
       display: flex;
       flex-direction: column;
       gap: 0.9rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .credentials-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 48%);
-      pointer-events: none;
-    }
-
-    .credentials-card.resume-card {
-      grid-area: resume;
-      border-color: rgba(96, 165, 250, 0.28);
-    }
-
-    .credentials-card.badges-card {
-      grid-area: badges;
-      border-color: rgba(250, 204, 21, 0.24);
-    }
-
-    .credentials-card.featured-card {
-      grid-area: post;
-      padding: 1.35rem;
-      border-color: rgba(129, 140, 248, 0.34);
-      background:
-        radial-gradient(circle at 100% 0, rgba(99, 102, 241, 0.16), transparent 36%),
-        radial-gradient(circle at 0 100%, rgba(34, 211, 238, 0.12), transparent 34%),
-        var(--surface-glass);
-    }
-
-    .credentials-card.resume-card::after,
-    .credentials-card.badges-card::after,
-    .credentials-card.featured-card::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      border-radius: 999px;
-      opacity: 0.9;
-    }
-
-    .credentials-card.resume-card::after {
-      background: linear-gradient(180deg, #60a5fa, #2563eb);
-    }
-
-    .credentials-card.badges-card::after {
-      background: linear-gradient(180deg, #f59e0b, #facc15);
-    }
-
-    .credentials-card.featured-card::after {
-      background: linear-gradient(180deg, #38bdf8, #7c3aed);
     }
 
     .credentials-card-header {
@@ -1013,8 +955,6 @@
       font-size: 1rem;
       font-weight: 600;
       line-height: 1.35;
-      position: relative;
-      z-index: 1;
     }
 
     .credentials-kicker {
@@ -1023,24 +963,18 @@
       letter-spacing: 0.14em;
       color: var(--muted);
       margin-bottom: 0.35rem;
-      position: relative;
-      z-index: 1;
     }
 
     .credentials-icon {
       font-size: 1.4rem;
       line-height: 1;
       opacity: 0.9;
-      position: relative;
-      z-index: 1;
     }
 
     .credentials-copy {
       font-size: 0.86rem;
       color: var(--muted);
       line-height: 1.7;
-      position: relative;
-      z-index: 1;
     }
 
     .credentials-actions {
@@ -1049,8 +983,6 @@
       gap: 0.7rem;
       align-items: center;
       margin-top: auto;
-      position: relative;
-      z-index: 1;
     }
 
     .credentials-link {
@@ -1078,74 +1010,10 @@
       color: var(--muted);
     }
 
-    .credentials-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.42rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .credentials-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.28rem;
-      padding: 0.24rem 0.58rem;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      color: #dbe4ff;
-      background: rgba(15, 23, 42, 0.34);
-      border: 1px solid rgba(148, 163, 184, 0.18);
-    }
-
-    .credentials-highlight {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.7rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .credentials-stat {
-      border-radius: 1rem;
-      padding: 0.8rem 0.85rem;
-      background: rgba(15, 23, 42, 0.32);
-      border: 1px solid rgba(148, 163, 184, 0.16);
-    }
-
-    .credentials-stat-value {
-      display: block;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #eef2ff;
-      margin-bottom: 0.15rem;
-    }
-
-    .credentials-stat-label {
-      font-size: 0.72rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
     body.theme-light .credentials-link {
       background: linear-gradient(135deg, #ffffff, #f8fafc);
       color: #334155;
       border-color: rgba(148, 163, 184, 0.32);
-    }
-
-    body.theme-light .credentials-pill {
-      background: linear-gradient(135deg, #ffffff, #f8fafc);
-      border-color: rgba(148, 163, 184, 0.24);
-      color: #475569;
-    }
-
-    body.theme-light .credentials-stat {
-      background: linear-gradient(135deg, #ffffff, #f8fafc);
-      border-color: rgba(148, 163, 184, 0.22);
-    }
-
-    body.theme-light .credentials-stat-value {
-      color: #0f172a;
     }
 
     /* Projects */
@@ -2095,18 +1963,6 @@
 
       .credentials-grid {
         grid-template-columns: 1fr;
-        grid-template-areas:
-          "post"
-          "resume"
-          "badges";
-      }
-
-      .credentials-card.featured-card {
-        padding: 1.1rem;
-      }
-
-      .credentials-highlight {
-        grid-template-columns: 1fr;
       }
 
       .section-header { padding-left: 0.8rem; }
@@ -2487,7 +2343,7 @@
       </div>
 
       <div class="credentials-grid">
-        <article class="credentials-card resume-card reveal delay-1">
+        <article class="credentials-card reveal delay-1">
           <div class="credentials-card-header">
             <div>
               <div class="credentials-kicker">Resume</div>
@@ -2498,10 +2354,6 @@
           <p class="credentials-copy">
             Get a concise summary of my DevSecOps, cloud, CI/CD, observability, and infrastructure automation experience in PDF format.
           </p>
-          <div class="credentials-pill-row">
-            <span class="credentials-pill">PDF format</span>
-            <span class="credentials-pill">Latest version</span>
-          </div>
           <div class="credentials-actions">
             <a
               class="credentials-link"
@@ -2515,7 +2367,7 @@
           </div>
         </article>
 
-        <article class="credentials-card badges-card reveal delay-2">
+        <article class="credentials-card reveal delay-2">
           <div class="credentials-card-header">
             <div>
               <div class="credentials-kicker">Certifications &amp; badges</div>
@@ -2526,11 +2378,6 @@
           <p class="credentials-copy">
             Browse my badges and certifications in one place, including cloud, DevOps, and security-related credentials.
           </p>
-          <div class="credentials-pill-row">
-            <span class="credentials-pill">Cloud</span>
-            <span class="credentials-pill">DevOps</span>
-            <span class="credentials-pill">Security</span>
-          </div>
           <div class="credentials-actions">
             <a
               class="credentials-link"
@@ -2544,7 +2391,7 @@
           </div>
         </article>
 
-        <article class="credentials-card featured-card reveal delay-3">
+        <article class="credentials-card reveal delay-3" style="grid-column: 1 / -1;">
           <div class="credentials-card-header">
             <div>
               <div class="credentials-kicker">Featured post</div>
@@ -2555,28 +2402,6 @@
           <p class="credentials-copy">
             I shared an end-to-end DevSecOps pipeline covering code analysis, dependency checks, Trivy scans, S3 report archival, automatic ECR repository creation, GitOps image updates, and Kubernetes deployment.
           </p>
-          <div class="credentials-highlight">
-            <div class="credentials-stat">
-              <span class="credentials-stat-value">8+</span>
-              <span class="credentials-stat-label">Pipeline stages from code to deployment</span>
-            </div>
-            <div class="credentials-stat">
-              <span class="credentials-stat-value">S3</span>
-              <span class="credentials-stat-label">Artifacts and reports archived for auditability</span>
-            </div>
-            <div class="credentials-stat">
-              <span class="credentials-stat-value">GitOps</span>
-              <span class="credentials-stat-label">Image tags updated automatically in manifests</span>
-            </div>
-          </div>
-          <div class="credentials-pill-row">
-            <span class="credentials-pill">Jenkins</span>
-            <span class="credentials-pill">SonarQube</span>
-            <span class="credentials-pill">OWASP</span>
-            <span class="credentials-pill">Trivy</span>
-            <span class="credentials-pill">AWS ECR</span>
-            <span class="credentials-pill">Kubernetes</span>
-          </div>
           <div class="credentials-actions">
             <a
               class="credentials-link"
